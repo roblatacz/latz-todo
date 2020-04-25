@@ -8,3 +8,7 @@ document.getElementById("btn").addEventListener("click", function () {
   li.innerHTML = textBox.value;
   ul.appendChild(li);
 });
+
+document.getElementById("remove-btn").addEventListener("click", function () {
+  ul.lastElementChild.remove();
+});
