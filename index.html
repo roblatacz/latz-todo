@@ -5,18 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pridi&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
+  <header>
     <h1 id="heading">Todo</h1>
-    <label for="todoText">Add Todo</label>
-    <input type="todoText" id="todoText" class="input" />
-    <button id="btn" class="check-btn">Add</button>
+  </header>
+  <body>
+    <input
+      type="todoText"
+      id="todoText"
+      class="input"
+      placeholder="Add Task..."
+    />
+    <button id="add-btn" class="btn">Add</button>
     <label>Remove last item</label>
-    <button id="remove-btn">Remove</button>
+    <button id="remove-btn" class="btn">Remove</button>
     <ul id="list">
-      <li>Item 1</li>
+      <!-- <li>Item 1</li>
       <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Item 3</li> -->
     </ul>
   </body>
   <script src="main.js"></script>
