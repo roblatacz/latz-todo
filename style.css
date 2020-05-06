@@ -37,7 +37,7 @@ input {
   padding: 5px 10px;
 }
 
-.btn {
+.add-btn-class {
   color: black;
   border: 2px solid black;
   background-color: white;
@@ -50,7 +50,7 @@ input {
   margin: 5px;
 }
 
-.btn:hover {
+.add-btn-class:hover {
   color: whitesmoke;
   background-color: rgb(87, 87, 87);
 }
@@ -60,11 +60,11 @@ ul {
   margin: auto;
 }
 
-#remove-btn {
+#del-btn-id {
   position: absolute;
 }
 
-#delbtn {
+#del-btn-id {
   position: relative;
   right: 1em;
   float: right;
