@@ -5,8 +5,11 @@ function createTask() {
   const ul = document.getElementById("ul-id");
   li.innerHTML = input.value;
   ul.appendChild(li);
+  input.value = "";
   console.log(ul);
 }
 
 // function to add the new task to the DOM
-document.getElementById("add-btn-id").addEventListener("click", createTask());
+document.getElementById("add-btn-id").addEventListener("click", function () {
+  createTask();
+});
