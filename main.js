@@ -23,6 +23,8 @@ function addTask() {
 function delTask(e) {
   const getButtonID = e.target.id;
   console.log(getButtonID);
+  console.log(e.target.parentNode);
+  e.target.parentNode.remove();
 }
 
 // event listener for add task button
