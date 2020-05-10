@@ -7,8 +7,23 @@ if (localStorage.length > 0) {
   const localStorageObject = localStorage.getItem(taskListLS);
   taskList = JSON.parse(localStorageObject);
   console.log(taskList);
+  // get text for each task
   taskList.forEach((task) => {
-    console.log(task);
+    console.log(task.text);
+    const li = document.createElement("li");
+    const del = document.createElement("button");
+    const input = document.getElementById("input-id");
+    const ul = document.getElementById("ul-id");
+    del.setAttribute("class", "del-btn-class");
+    del.setAttribute("id", "del-btn-id");
+    //add text and delete button to li element
+    li.innerHTML = task.text;
+    li.appendChild(del);
+    //delete button stuff
+    del.innerHTML = "Delete";
+    del.onclick = delTask;
+    // add task to the DOM
+    ul.appendChild(li);
   });
 }
 
