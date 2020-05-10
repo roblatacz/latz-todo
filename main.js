@@ -1,4 +1,5 @@
 taskList = [];
+id = 0; // this should be the ID of the last task we have in local storage
 
 // function to create the task li
 function addTask() {
@@ -8,15 +9,27 @@ function addTask() {
   const ul = document.getElementById("ul-id");
   del.setAttribute("class", "del-btn-class");
   del.setAttribute("id", "del-btn-id");
-  taskList.push(input.value);
-  console.log(taskList);
-  del.innerHTML = "Delete";
-  del.onclick = delTask;
+  //add text and delete button to li element
   li.innerHTML = input.value;
   li.appendChild(del);
+  //increment the task ID every new task
+  id++;
+  //create the task object
+  const singleTask = {
+    id: id,
+    task: input.value,
+    isCompleted: false,
+  };
+  //add the task to the task list array
+  taskList.push(singleTask);
+  // localStorage.setItem();
+  console.log(taskList);
+  //delete button stuff
+  del.innerHTML = "Delete";
+  del.onclick = delTask;
+  // add task to the DOM
   ul.appendChild(li);
   input.value = "";
-  console.log(ul);
 }
 
 // function to delete a task
