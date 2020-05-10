@@ -1,5 +1,16 @@
 taskList = [];
+taskListLS = [];
 id = 0; // this should be the ID of the last task we have in local storage
+
+// get the tasks from local storage and add to DOM
+if (localStorage.length > 0) {
+  const localStorageObject = localStorage.getItem(taskListLS);
+  taskList = JSON.parse(localStorageObject);
+  console.log(taskList);
+  taskList.forEach((task) => {
+    console.log(task);
+  });
+}
 
 // function to create the task li
 function addTask() {
@@ -15,13 +26,16 @@ function addTask() {
   //increment the task ID every new task
   id++;
   //create the task object
-  const singleTask = {
+  const task = {
     id: id,
-    task: input.value,
+    text: input.value,
     isCompleted: false,
   };
   //add the task to the task list array
-  taskList.push(singleTask);
+  taskList.push(task);
+  //add the task to local storage
+  localStorage.setItem(taskListLS, JSON.stringify(taskList));
+  console.log(localStorage);
   // localStorage.setItem();
   console.log(taskList);
   //delete button stuff
