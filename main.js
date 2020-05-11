@@ -1,15 +1,15 @@
 taskList = [];
 taskListLS = [];
-id = 0; // this should be the ID of the last task we have in local storage
+// id = 0; // this should be the ID of the last task we have in local storage
 
 // get the tasks from local storage and add to DOM
 if (localStorage.length > 0) {
   const localStorageObject = localStorage.getItem(taskListLS);
   taskList = JSON.parse(localStorageObject);
-  console.log(taskList);
   // get text for each task
   taskList.forEach((task) => {
     console.log(task.text);
+    console.log(task);
     const li = document.createElement("li");
     const del = document.createElement("button");
     const input = document.getElementById("input-id");
@@ -38,6 +38,15 @@ function addTask() {
   //add text and delete button to li element
   li.innerHTML = input.value;
   li.appendChild(del);
+  // get the ID of the last task in local storage, otherwise id = 0
+  if (localStorage.length > 0) {
+    const localStorageObject = localStorage.getItem(taskListLS);
+    taskList = JSON.parse(localStorageObject);
+    console.log(taskList);
+    id = taskList[taskList.length - 1].id; // gets id of last task
+  } else {
+    id = 0; // if no tasks in local storage
+  }
   //increment the task ID every new task
   id++;
   //create the task object
@@ -50,8 +59,6 @@ function addTask() {
   taskList.push(task);
   //add the task to local storage
   localStorage.setItem(taskListLS, JSON.stringify(taskList));
-  console.log(localStorage);
-  // localStorage.setItem();
   console.log(taskList);
   //delete button stuff
   del.innerHTML = "Delete";
@@ -64,8 +71,6 @@ function addTask() {
 // function to delete a task
 function delTask(e) {
   const getButtonID = e.target.id;
-  console.log(getButtonID);
-  console.log(e.target.parentNode);
   e.target.parentNode.remove();
 }
 
