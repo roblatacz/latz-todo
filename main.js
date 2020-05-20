@@ -64,7 +64,7 @@ function addTask() {
   //add the task to local storage
   localStorage.setItem(taskListLS, JSON.stringify(taskList));
   //delete button stuff
-  del.innerHTML = "Delete";
+  del.innerHTML = "delete";
   del.onclick = delTask;
   // add task to the DOM
   ul.appendChild(li);
