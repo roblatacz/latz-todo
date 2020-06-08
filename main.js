@@ -1,6 +1,5 @@
 taskList = [];
 taskListLS = [];
-// id = 0; // this should be the ID of the last task we have in local storage
 
 // get the tasks from local storage and add to DOM
 if (localStorage.length > 0) {
@@ -31,7 +30,8 @@ if (localStorage.length > 0) {
   });
 }
 
-// function to create the task li
+// function to create the task li and add task
+
 function addTask() {
   const li = document.createElement("li");
   const del = document.createElement("button");
@@ -39,36 +39,42 @@ function addTask() {
   const ul = document.getElementById("ul-id");
   del.setAttribute("class", "material-icons");
   del.setAttribute("id", "del-btn-id");
-  //add text and delete button to li element
-  li.innerHTML = input.value;
-  li.appendChild(del);
-  // get the ID of the last task in local storage, otherwise id = 0
-  if (localStorage.length > 0) {
-    const localStorageObject = localStorage.getItem(taskListLS);
-    taskList = JSON.parse(localStorageObject);
-    id = taskList[taskList.length - 1].id; // gets id of last task
+
+  //check for empty tasks
+  if (input.value === "") {
+    console.log("no text entered for task");
   } else {
-    id = 0; // if no tasks in local storage
+    //add text and delete button to li element
+    li.innerHTML = input.value;
+    li.appendChild(del);
+    // get the ID of the last task in local storage, otherwise id = 0
+    if (localStorage.length > 0) {
+      const localStorageObject = localStorage.getItem(taskListLS);
+      taskList = JSON.parse(localStorageObject);
+      id = taskList[taskList.length - 1].id; // gets id of last task
+    } else {
+      id = 0; // if no tasks in local storage
+    }
+    //increment the task ID every new task
+    id++;
+    //create the task object
+    const task = {
+      id: id,
+      text: input.value,
+      isCompleted: false,
+    };
+    li.setAttribute("id", task.id);
+    //add the task to the task list array
+    taskList.push(task);
+    //add the task to local storage
+    localStorage.setItem(taskListLS, JSON.stringify(taskList));
+    //delete button stuff
+    del.innerHTML = "delete";
+    del.onclick = delTask;
+    // add task to the DOM
+    ul.appendChild(li);
+    input.value = "";
   }
-  //increment the task ID every new task
-  id++;
-  //create the task object
-  const task = {
-    id: id,
-    text: input.value,
-    isCompleted: false,
-  };
-  li.setAttribute("id", task.id);
-  //add the task to the task list array
-  taskList.push(task);
-  //add the task to local storage
-  localStorage.setItem(taskListLS, JSON.stringify(taskList));
-  //delete button stuff
-  del.innerHTML = "delete";
-  del.onclick = delTask;
-  // add task to the DOM
-  ul.appendChild(li);
-  input.value = "";
 }
 
 // function to delete a task
