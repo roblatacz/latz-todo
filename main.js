@@ -11,12 +11,15 @@ if (localStorage.length > 0) {
       console.log(task);
       const li = document.createElement("li");
       const del = document.createElement("button");
+      const txt = document.createElement("div");
       const input = document.getElementById("input-id");
       const ul = document.getElementById("ul-id");
       del.setAttribute("class", "material-icons");
       del.setAttribute("id", "del-btn-id");
+      txt.setAttribute("class", "li-txt-class");
       //add text and delete button to li element
-      li.innerHTML = task.text;
+      txt.innerHTML = task.text;
+      li.appendChild(txt);
       li.appendChild(del);
       //delete button stuff
       del.innerHTML = "delete";
@@ -34,18 +37,21 @@ if (localStorage.length > 0) {
 
 function addTask() {
   const li = document.createElement("li");
+  const txt = document.createElement("div");
   const del = document.createElement("button");
   const input = document.getElementById("input-id");
   const ul = document.getElementById("ul-id");
   del.setAttribute("class", "material-icons");
   del.setAttribute("id", "del-btn-id");
+  txt.setAttribute("class", "li-txt-class");
 
   //check for empty tasks
   if (input.value === "") {
     console.log("no text entered for task");
   } else {
     //add text and delete button to li element
-    li.innerHTML = input.value;
+    txt.innerHTML = input.value;
+    li.appendChild(txt);
     li.appendChild(del);
     // get the ID of the last task in local storage, otherwise id = 0
     if (localStorage.length > 0) {

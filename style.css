@@ -41,8 +41,9 @@ li {
   text-align: left;
   font-weight: bold;
   margin: 20px;
-  padding: 5px;
+  padding: 5px 30px 5px 5px;
   border-style: solid;
+  word-wrap: break-word;
 }
 
 input {
@@ -89,9 +90,10 @@ ul {
 
 #del-btn-id {
   position: relative;
-  right: 0.2em;
+  right: -1.1em;
   float: right;
   padding: 0px;
+  margin-top: -24px;
 }
 
 .material-icons {
