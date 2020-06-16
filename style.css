@@ -40,6 +40,7 @@ li {
   font-family: "Open Sans Condensed", sans-serif;
   text-align: left;
   font-weight: bold;
+  font-size: 16px;
   margin: 20px;
   padding: 5px 30px 5px 5px;
   border-style: solid;
@@ -63,7 +64,10 @@ input {
 }
 
 #input-div-id {
-  padding: 0em 4em;
+  padding: 0em;
+  margin: 0em;
+  text-align: center;
+  width: 91%;
 }
 
 .add-btn-class {

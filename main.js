@@ -1,8 +1,8 @@
 taskList = [];
-taskListLS = [];
 
 // get the tasks from local storage and add to DOM
 if (localStorage.length > 0) {
+  taskListLS = [];
   const localStorageObject = localStorage.getItem(taskListLS);
   taskList = JSON.parse(localStorageObject);
   // get text for each task
@@ -21,11 +21,11 @@ if (localStorage.length > 0) {
       txt.innerHTML = task.text;
       li.appendChild(txt);
       li.appendChild(del);
-      //delete button stuff
+      //delete button functionality
       del.innerHTML = "delete";
       del.onclick = delTask;
-      // get the ID of the last task in local storage, otherwise id = 0
-      id = task.id; // gets id of the task
+      // get the ID of the last task in local storage
+      id = task.id;
       li.setAttribute("id", id);
       // add task to the DOM
       ul.appendChild(li);
@@ -34,7 +34,6 @@ if (localStorage.length > 0) {
 }
 
 // function to create the task li and add task
-
 function addTask() {
   const li = document.createElement("li");
   const txt = document.createElement("div");
@@ -53,7 +52,7 @@ function addTask() {
     txt.innerHTML = input.value;
     li.appendChild(txt);
     li.appendChild(del);
-    // get the ID of the last task in local storage, otherwise id = 0
+    // get the ID of the last task in local storage
     if (localStorage.length > 0) {
       const localStorageObject = localStorage.getItem(taskListLS);
       taskList = JSON.parse(localStorageObject);
@@ -74,7 +73,7 @@ function addTask() {
     taskList.push(task);
     //add the task to local storage
     localStorage.setItem(taskListLS, JSON.stringify(taskList));
-    //delete button stuff
+    //delete button functionality
     del.innerHTML = "delete";
     del.onclick = delTask;
     // add task to the DOM
@@ -85,13 +84,13 @@ function addTask() {
 
 // function to delete a task
 function delTask(e) {
-  // add code here to set isComplete to true
+  // get the id of the task
   const getTaskId = e.target.parentNode.id;
   //get the existing data from local storage
   const existing = localStorage.getItem(taskListLS);
   //convert local storage string to an array
   const existingParsed = JSON.parse(existing);
-  //get the object which matches the id of the parent of the del (li)
+  //get the object which matches the id of the parent del
   function search(idKey, taskArray) {
     for (let i = 0; i < taskArray.length; i++) {
       if (taskArray[i].id == idKey) {
