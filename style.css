@@ -4,9 +4,8 @@
 }
 
 header {
-  background: rgb(36, 66, 85);
-  color: white;
-  font-family: "Open Sans Condensed", sans-serif;
+  color: black;
+  font-family: 'Roboto', sans-serif;
   width: 70%;
   margin: auto;
   height: 70px;
@@ -15,48 +14,20 @@ header {
 }
 
 h1 {
-  position: relative;
-  margin: auto;
   top: 5px;
-  font-size: 50px;
+  font-size: 70px;
+}
+
+h3 {
+  top: 5px;
+  font-size: 20px;
 }
 
 body {
-  background: whitesmoke;
+  background: white;
   text-align: center;
   position: relative;
-  font-family: "Open Sans Condensed", sans-serif;
-  color: darkgray;
-}
-
-div {
-  padding: 0.1em;
-  margin: 0em;
-}
-
-li {
-  list-style-type: none;
-  color: rgb(78, 78, 78);
-  font-family: "Open Sans Condensed", sans-serif;
-  text-align: left;
-  font-weight: bold;
-  font-size: 16px;
-  margin: 20px;
-  padding: 5px 30px 5px 5px;
-  border-style: solid;
-  word-wrap: break-word;
-}
-
-input {
-  color: black;
-  border: 2px solid black;
-  padding: 5px 10px;
-  position: relative;
-  font-family: "Open Sans Condensed", sans-serif;
-  font-size: large;
-  font-weight: bold;
-  width: 45%;
-  margin: 0px;
+  font-family: 'Roboto', sans-serif;
 }
 
 #main-div-id {
@@ -70,7 +41,7 @@ input {
   width: 91%;
 }
 
-.add-btn-class {
+/* .add-btn-class {
   color: black;
   border: 2px solid black;
   background-color: white;
@@ -79,6 +50,32 @@ input {
   cursor: pointer;
   margin-left: 4px;
   position: absolute;
+} */
+
+#input-id {
+  border: 2px solid black;
+  padding: 5px 10px;
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+  font-size: large;
+  width: 80%;
+  margin: 0px;
+  display: inline-block;
+  background-color: rgb(248, 248, 248);
+}
+
+#add-btn-id {
+  color: black;
+  border: 2px solid black;
+  background-color: white;
+  font-size: 18px;
+  padding: 7px 10px 3px 4px;
+  cursor: pointer;
+  margin-left: 4px;
+  position: absolute;
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+  background-color: rgb(248, 248, 248);
 }
 
 .add-btn-class:hover {
@@ -92,16 +89,28 @@ ul {
   margin: auto;
 }
 
+li {
+  list-style-type: none;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  text-align: left;
+  margin: 20px;
+  padding: 5px 30px 5px 5px;
+  border-style: solid;
+  border-radius: 0px;
+  word-wrap: break-word;
+}
+
 #del-btn-id {
   position: relative;
   right: -1.1em;
   float: right;
   padding: 0px;
-  margin-top: -24px;
+  margin-top: -22px;
 }
 
 .material-icons {
   border: none;
-  background-color: whitesmoke;
+  background-color: white;
   cursor: pointer;
 }

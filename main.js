@@ -9,24 +9,24 @@ if (localStorage.length > 0) {
   taskList.forEach((task) => {
     if (task.isCompleted === false) {
       console.log(task);
-      const li = document.createElement("li");
-      const del = document.createElement("button");
-      const txt = document.createElement("div");
-      const input = document.getElementById("input-id");
-      const ul = document.getElementById("ul-id");
-      del.setAttribute("class", "material-icons");
-      del.setAttribute("id", "del-btn-id");
-      txt.setAttribute("class", "li-txt-class");
+      const li = document.createElement('li');
+      const del = document.createElement('button');
+      const txt = document.createElement('div');
+      const input = document.getElementById('input-id');
+      const ul = document.getElementById('ul-id');
+      del.setAttribute('class', 'material-icons');
+      del.setAttribute('id', 'del-btn-id');
+      txt.setAttribute('class', 'li-txt-class');
       //add text and delete button to li element
       txt.innerHTML = task.text;
       li.appendChild(txt);
       li.appendChild(del);
       //delete button functionality
-      del.innerHTML = "delete";
+      del.innerHTML = 'delete';
       del.onclick = delTask;
       // get the ID of the last task in local storage
       id = task.id;
-      li.setAttribute("id", id);
+      li.setAttribute('id', id);
       // add task to the DOM
       ul.appendChild(li);
     }
@@ -35,18 +35,18 @@ if (localStorage.length > 0) {
 
 // function to create the task li and add task
 function addTask() {
-  const li = document.createElement("li");
-  const txt = document.createElement("div");
-  const del = document.createElement("button");
-  const input = document.getElementById("input-id");
-  const ul = document.getElementById("ul-id");
-  del.setAttribute("class", "material-icons");
-  del.setAttribute("id", "del-btn-id");
-  txt.setAttribute("class", "li-txt-class");
+  const li = document.createElement('li');
+  const txt = document.createElement('div');
+  const del = document.createElement('button');
+  const input = document.getElementById('input-id');
+  const ul = document.getElementById('ul-id');
+  del.setAttribute('class', 'material-icons');
+  del.setAttribute('id', 'del-btn-id');
+  txt.setAttribute('class', 'li-txt-class');
 
   //check for empty tasks
-  if (input.value === "") {
-    console.log("no text entered for task");
+  if (input.value === '') {
+    console.log('no text entered for task');
   } else {
     //add text and delete button to li element
     txt.innerHTML = input.value;
@@ -68,17 +68,17 @@ function addTask() {
       text: input.value,
       isCompleted: false,
     };
-    li.setAttribute("id", task.id);
+    li.setAttribute('id', task.id);
     //add the task to the task list array
     taskList.push(task);
     //add the task to local storage
     localStorage.setItem(taskListLS, JSON.stringify(taskList));
     //delete button functionality
-    del.innerHTML = "delete";
+    del.innerHTML = 'delete';
     del.onclick = delTask;
     // add task to the DOM
     ul.appendChild(li);
-    input.value = "";
+    input.value = '';
   }
 }
 
@@ -112,13 +112,26 @@ function delTask(e) {
 }
 
 // event listener for add task button
-document.getElementById("add-btn-id").addEventListener("click", function () {
+document.getElementById('add-btn-id').addEventListener('click', function () {
   addTask();
 });
 
 // function to add the new task to the DOM on pressing enter key
-document.getElementById("input-id").addEventListener("keyup", function (event) {
+document.getElementById('input-id').addEventListener('keyup', function (event) {
   if (event.keyCode === 13) {
-    document.getElementById("add-btn-id").click();
+    document.getElementById('add-btn-id').click();
   }
 });
+
+//get todays date for the header
+const date = new Date();
+const weekday = new Array(7);
+weekday[0] = 'Sunday';
+weekday[1] = 'Monday';
+weekday[2] = 'Tuesday';
+weekday[3] = 'Wednesday';
+weekday[4] = 'Thursday';
+weekday[5] = 'Friday';
+weekday[6] = 'Saturday';
+currentDay = weekday[date.getDay()];
+document.getElementById('heading').innerHTML = currentDay;
